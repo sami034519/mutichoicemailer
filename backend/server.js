@@ -10,4 +10,4 @@ app.use(cors({
 app.use(express.json());
 app.use("/api/order", router);
 
-export default app; // for Vercel
+export default app; // important for Vercel serverless function
