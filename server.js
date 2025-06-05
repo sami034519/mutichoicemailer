@@ -8,9 +8,16 @@ app.use(cors({
   origin: "https://multichoice-home-security.vercel.app",
 }));
 app.use(express.json());
+
+// Mount your router at /api/order
 app.use("/api/order", router);
 
-// This is required for Vercel compatibility
+// Simple test endpoint
+app.get("/api/ping", (req, res) => {
+  res.send("pong");
+});
+
+// Export as default handler for Vercel
 export default function handler(req, res) {
-  return app(req, res); // allows Express to handle the request
+  return app(req, res);
 }
